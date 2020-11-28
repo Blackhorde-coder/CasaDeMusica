@@ -1,4 +1,4 @@
-﻿@model List<CasaDeMusica.DTO.DTOinstrumento>
+﻿@model List<CasaDeMusica.Models.Instrumento>
 @{
     ViewBag.Title = "Listado";
 }
@@ -8,24 +8,27 @@
     <table class="table table-sm">
         <thead class="thead-dark">
             <tr>
-                <th class="text-center">Patente</th>
-                <th class="text-center">Tipo</th>
-                <th class="text-center">Precio</th>
-                <th class="text-center">Acciones</th>
+                <th class="text-center">INSTRUMENTO</th>
+                <th class="text-center">DESCRIPCION</th>
+                <th class="text-center">TIPO</th>
+                <th class="text-center">PRECIO</th>
+                <th class="text-center">STOCK</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var l in Model)
+            @foreach (var I in Model)
             {
-                <tr>
-                    <td class="text-center">@l.patente</td>
-                    <td class="text-center">@l.nombre</td>
-                    <td class="text-center">@l.precio</td>
-                    <td class="text-center">
-                        <a href="/Lavado/Editar?idLavado=@l.idlavado" class="btn btn-success">Editar</a>
-                        <a href="/Lavado/Eliminar?idLavado=@l.idlavado" class="btn btn-danger">Eliminar</a>
-                    </td>
-                </tr>
+            <tr>
+                <td class="text-center">@I.Nombre</td>
+                <td class="text-center">@I.Descripcion</td>
+                <td class="text-center">@I.Idtipo</td>
+                <td class="text-center">@I.Precio</td>
+                <td class="text-center">@I.Stock</td>
+                <td class="text-center">
+                    <a href="/Instrumentos/Editar?idinstrumento=@I.Idinstrumento" class="btn btn-success">Editar</a>
+                    <a href="/Instrumentos/Eliminar?idinstrumento=@I.Idinstrumento" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
